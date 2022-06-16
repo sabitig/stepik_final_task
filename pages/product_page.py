@@ -10,7 +10,7 @@ class ProductPage(BasePage):
     def checking_the_name_of_the_added_product(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
         item_in_cart = self.browser.find_element(*ProductPageLocators.ITEM_IN_CART)
-        assert product_name.text == item_in_cart.text, "The product name in the purchase message does not match the product" 
+        assert product_name.text == item_in_cart.text, "The product name in the purchase message does not match the product"
 
     def check_cart_value(self):
         basket_value = self.browser.find_element(*ProductPageLocators.BASKET_VALUE)
