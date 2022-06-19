@@ -29,12 +29,14 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
@@ -44,8 +46,18 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page.checking_if_the_cart_is_empty()
     basket_page.there_is_an_empty_cart_message()
 
-@pytest.mark.register_guest
+@pytest.mark.need_review
+def test_guest_can_add_product_to_basket(browser):
+        link = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/"
+        page = ProductPage(browser, link)
+        page.open()
+        page.add_to_basket()
+        page.checking_the_name_of_the_added_product()
+        page.check_cart_value()
+
+@pytest.mark.login
 class TestUserAddToBasketFromProductPage():
+    @pytest.mark.need_review
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"        
@@ -63,6 +75,7 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.should_not_be_success_message()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/"
         page = ProductPage(browser, link)
