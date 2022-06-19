@@ -5,6 +5,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     VIEV_SHOPPING_CART = (By.XPATH, "//span/a[@class='btn btn-default']")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
@@ -12,6 +13,11 @@ class MainPageLocators():
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    EMAIL_INPUT_REGISTER = (By.XPATH, "//div/input[@name='registration-email']")
+    PASSWORD_INPUT_REGISTER = (By.XPATH, "//div/input[@name='registration-password1']")
+    CONFIRM_PASSWORD_INPUT_REGISTER = (By.XPATH, "//div/input[@name='registration-password2']")
+    REGISTER_BUTTON = (By.XPATH, "//button[@name='registration_submit']")
+    REGISTER_OK_NOTIFICATION = (By.XPATH, "//div/i[@class='icon-ok-sign']")
 
 class ProductPageLocators():
     ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, "#add_to_basket_form")
